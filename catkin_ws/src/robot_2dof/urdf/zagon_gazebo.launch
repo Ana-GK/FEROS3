@@ -11,10 +11,13 @@
     <rosparam file="$(find robot_2dof)/config/controller.yaml" command="load"/>
 
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/MOJROBOT" 
-        args="joint_state_controller"/>
+        args="joint_state_controller
+        joint_controller"/> <!--Add this new line-->
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <remap from="/joint_states" to="/MOJROBOT/joint_states" />
     </node>
-    
+
+
+
 </launch>
